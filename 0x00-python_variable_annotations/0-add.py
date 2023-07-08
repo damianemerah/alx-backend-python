@@ -3,6 +3,7 @@
 Addition of floats
 """
 
+
 def add(a: float, b: float) -> float:
     """
     add:
