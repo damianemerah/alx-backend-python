@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-""" return values, add type annotations to the function"""
-from typing import Mapping, TypeVar, Union, Any
-
-T = TypeVar('T')
+"""Task 10"""
+from typing import Sequence, Any, Union
 
 
-def safely_get_value(dct: Mapping, key: Any, default: Union[T, None] = None) -> Union[Any, T]:
-    if key in dct:
-        return dct[key]
+def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
+    """Return lst[0] or None"""
+    if lst:
+        return lst[0]
     else:
-        return default
+        return None
