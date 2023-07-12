@@ -22,11 +22,3 @@ async def measure_runtime() -> float:
     end = asyncio.get_event_loop().time()
 
     return end - start
-
-
-async def main():
-    return await(measure_runtime())
-
-print(
-    asyncio.run(main())
-)
