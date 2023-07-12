@@ -1,22 +1,13 @@
-import asyncio
+from typing import Generator
 
 
-async def my_coroutine(delay, name):
-    await asyncio.sleep(delay)
-    return name
+def my_generator() -> Generator[int, None, None]:
+    yield 1
+    yield 2
+    yield 3
 
 
-async def main():
-    coroutines = [
-        my_coroutine(3, "Task 1"),
-        my_coroutine(1, "Task 2"),
-        my_coroutine(2, "Task 3")
-    ]
-
-    tasks = [asyncio.create_task(coro) for coro in coroutines]
-    done, pending = await asyncio.wait(tasks, return_when=asyncio.FIRST_COMPLETED)
-    for future in done:
-        result = await future
-        print(result)
-
-asyncio.run(main())
+print(my_generator())
+# Using the type-annotated generator
+for item in my_generator():
+    print(item)
